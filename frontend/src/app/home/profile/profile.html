@@ -1,0 +1,85 @@
+<div class="profile-container">
+
+  <div class="profile-heading">
+
+    <h1>My Profile</h1>
+
+    <p>
+      View your account information.
+    </p>
+
+  </div>
+
+
+  <div class="profile-card">
+
+    @if (isLoading) {
+
+      <p>Loading profile...</p>
+
+    }
+
+    @else if (errorMessage) {
+
+      <div class="error-message">
+        {{ errorMessage }}
+      </div>
+
+    }
+
+    @else {
+
+      <div class="profile-header">
+
+        <div class="profile-avatar">
+          {{ userName.charAt(0).toUpperCase() }}
+        </div>
+
+        <div class="profile-name">
+
+          <h2>
+            {{ userName }}
+          </h2>
+
+          <p>
+            Account Information
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <hr>
+
+
+      <div class="profile-information">
+
+        <div class="information-item">
+
+          <span class="label">
+            Email
+          </span>
+
+          <span class="value">
+            {{ userEmail }}
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="logout-button"
+        (click)="logout()">
+
+        Logout
+
+      </button>
+
+    }
+
+  </div>
+
+</div>

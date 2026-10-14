@@ -1,0 +1,237 @@
+<div class="auth-page">
+
+  <div class="auth-card">
+
+    <!-- ========================= -->
+    <!-- TABS -->
+    <!-- ========================= -->
+
+    <div class="auth-tabs">
+
+      <button
+        type="button"
+        [class.active]="isLogin"
+        (click)="showLogin()">
+
+        Login
+
+      </button>
+
+
+      <button
+        type="button"
+        [class.active]="!isLogin"
+        (click)="showRegister()">
+
+        Register
+
+      </button>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- LOGIN -->
+    <!-- ========================= -->
+
+    @if (isLogin) {
+
+      <h1>Login</h1>
+
+      <p class="subtitle">
+        Login to your account
+      </p>
+
+
+      <form (ngSubmit)="login()">
+
+        <!-- Email -->
+
+        <div class="form-group">
+
+          <label for="loginEmail">
+            Email
+          </label>
+
+          <input
+            id="loginEmail"
+            type="email"
+            name="loginEmail"
+            [(ngModel)]="loginEmail"
+            placeholder="Enter your email"
+            required
+          >
+
+        </div>
+
+
+        <!-- Password -->
+
+        <div class="form-group">
+
+          <label for="loginPassword">
+            Password
+          </label>
+
+          <input
+            id="loginPassword"
+            type="password"
+            name="loginPassword"
+            [(ngModel)]="loginPassword"
+            placeholder="Enter your password"
+            required
+          >
+
+        </div>
+
+
+        @if (errorMessage) {
+
+          <div class="error-message">
+            {{ errorMessage }}
+          </div>
+
+        }
+
+
+        @if (successMessage) {
+
+          <div class="success-message">
+            {{ successMessage }}
+          </div>
+
+        }
+
+
+        <button
+          type="submit"
+          class="auth-button"
+          [disabled]="isLoading">
+
+          @if (isLoading) {
+            Logging in...
+          } @else {
+            Login
+          }
+
+        </button>
+
+      </form>
+
+    }
+
+
+    <!-- ========================= -->
+    <!-- REGISTER -->
+    <!-- ========================= -->
+
+    @else {
+
+      <h1>Create Account</h1>
+
+      <p class="subtitle">
+        Register a new account
+      </p>
+
+
+      <form (ngSubmit)="register()">
+
+        <!-- Name -->
+
+        <div class="form-group">
+
+          <label for="registerName">
+            Name
+          </label>
+
+          <input
+            id="registerName"
+            type="text"
+            name="registerName"
+            [(ngModel)]="registerName"
+            placeholder="Enter your name"
+            required
+          >
+
+        </div>
+
+
+        <!-- Email -->
+
+        <div class="form-group">
+
+          <label for="registerEmail">
+            Email
+          </label>
+
+          <input
+            id="registerEmail"
+            type="email"
+            name="registerEmail"
+            [(ngModel)]="registerEmail"
+            placeholder="Enter your email"
+            required
+          >
+
+        </div>
+
+
+        <!-- Password -->
+
+        <div class="form-group">
+
+          <label for="registerPassword">
+            Password
+          </label>
+
+          <input
+            id="registerPassword"
+            type="password"
+            name="registerPassword"
+            [(ngModel)]="registerPassword"
+            placeholder="Create a password"
+            required
+          >
+
+        </div>
+
+
+        @if (errorMessage) {
+
+          <div class="error-message">
+            {{ errorMessage }}
+          </div>
+
+        }
+
+
+        @if (successMessage) {
+
+          <div class="success-message">
+            {{ successMessage }}
+          </div>
+
+        }
+
+
+        <button
+          type="submit"
+          class="auth-button"
+          [disabled]="isLoading">
+
+          @if (isLoading) {
+            Creating account...
+          } @else {
+            Register
+          }
+
+        </button>
+
+      </form>
+
+    }
+
+
+  </div>
+
+</div>

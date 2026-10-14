@@ -1,0 +1,23 @@
+.app-title {
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-logout-btn {
+  margin-left: 8px;
+  opacity: 0.9;
+}
+
+.toolbar-logout-btn:hover {
+  opacity: 1;
+}
+
+.page-container {
+  padding: 30px;
+}
